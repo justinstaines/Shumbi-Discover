@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FEE695B4-88A4-42B4-AEBE-0BBDC9F4E46C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShumbiDiscover.Visualisations</RootNamespace>
+    <AssemblyName>ShumbiDiscover.Visualisations</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\Version\Shumbi Ltd.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\ShumbiDiscover.Visualisations.Wpf.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>1591,1572,1573,1574,1587</WarningsAsErrors>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Converters\ChildVisibilityConverter.cs" />
+    <Compile Include="Converters\RelevanceConverter.cs" />
+    <Compile Include="NetworkControl.xaml.cs">
+      <DependentUpon>NetworkControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkVisualNode.xaml.cs">
+      <DependentUpon>NetworkVisualNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TagCloud.xaml.cs">
+      <DependentUpon>TagCloud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TagCloudVisualNode.xaml.cs">
+      <DependentUpon>TagCloudVisualNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TreeMap.xaml.cs">
+      <DependentUpon>TreeMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
+    <EmbeddedResource Include="Properties\Resources.en-GB.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Properties\Resources.nl-NL.resx" />
+    <EmbeddedResource Include="Properties\Resources.pl-PL.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt-BR.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru-RU.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Core\Obany.Core.csproj">
+      <Project>{B59643D9-06E7-41EC-B415-C3A91C4E7838}</Project>
+      <Name>Obany.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Hid\Obany.Hid.Tablet\Obany.Hid.Tablet.csproj">
+      <Project>{31EA985E-AB0A-43B2-B112-9DAC1EDC542A}</Project>
+      <Name>Obany.Hid.Tablet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\UI\Obany.UI.Wpf\Obany.UI.Wpf.csproj">
+      <Project>{8D1C16F0-6B18-4A0E-B008-B8A1E8351D2D}</Project>
+      <Name>Obany.UI.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\UI\System.Windows.Controls.DataVisualization.Toolkit\System.Windows.Controls.DataVisualization.Toolkit.csproj">
+      <Project>{E7CA378A-C7C6-45BC-88F1-F024D6EECF0D}</Project>
+      <Name>System.Windows.Controls.DataVisualization.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\UI\System.Windows.Controls.Toolkit\System.Windows.Controls.Toolkit.csproj">
+      <Project>{DF276343-F1E1-4178-B096-9BB604D0CC72}</Project>
+      <Name>System.Windows.Controls.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ShumbiDiscover.Model\ShumbiDiscover.Model.csproj">
+      <Project>{9A374302-5A1F-4A3C-82A7-948DE5996688}</Project>
+      <Name>ShumbiDiscover.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Version\Shumbi Ltd.pfx">
+      <Link>Shumbi Ltd.pfx</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Lib\Core\Obany.Core\bin\Debug\Obany.Core.dll" />
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Lib\Hid\Obany.Hid.Tablet\bin\Debug\Obany.Hid.Tablet.dll" />
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Lib\UI\Obany.UI.Wpf\bin\Debug\Obany.UI.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\PresentationFramework.dll" />
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Common\ShumbiDiscover.Model\bin\Debug\ShumbiDiscover.Model.dll" />
+    <ReferencePath Include="..\..\..\..\..\..\3rd Party\{smartassembly}\Attributes\SmartAssembly.Attributes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll" />
+    <ReferencePath Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll" />
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Lib\UI\System.Windows.Controls.DataVisualization.Toolkit\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll" />
+    <ReferencePath Include="H:\Projects\Shumbi\Source\Lib\UI\System.Windows.Controls.Toolkit\bin\Debug\System.Windows.Controls.Toolkit.dll" />
+    <ReferencePath Include="C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\NetworkControl.g.cs" />
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\NetworkVisualNode.g.cs" />
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\TagCloud.g.cs" />
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\TagCloudVisualNode.g.cs" />
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\TreeMap.g.cs" />
+    <Compile Include="H:\Projects\Shumbi\Source\Apps\ShumbiDiscover\Desktop\ShumbiDiscover.Visualisations.Wpf\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

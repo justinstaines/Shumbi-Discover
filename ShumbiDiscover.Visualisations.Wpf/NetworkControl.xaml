@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ShumbiDiscover.Visualisations.NetworkControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+			 mc:Ignorable="d"
+			 d:DesignWidth="1024"
+			 d:DesignHeight="768">
+    <UserControl.Resources>
+        
+        <Style x:Key="NetworkScrollViewer" TargetType="ScrollViewer">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="#00000000"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0"/>
+                            </Grid.RowDefinitions>
+                            <ScrollContentPresenter x:Name="ScrollContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            <Rectangle Grid.Column="1" Grid.Row="1" />
+                            <ScrollBar x:Name="VerticalScrollBar" Width="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" IsTabStop="False" Grid.Column="1" Grid.Row="0" Orientation="Vertical" ViewportSize="{TemplateBinding ViewportHeight}" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Value="{TemplateBinding VerticalOffset}"/>
+                            <ScrollBar x:Name="HorizontalScrollBar" Height="0" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" IsTabStop="False" Grid.Column="0" Grid.Row="1" Orientation="Horizontal" ViewportSize="{TemplateBinding ViewportWidth}" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Value="{TemplateBinding HorizontalOffset}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer x:Name="_scrollViewer" Style="{StaticResource NetworkScrollViewer}">
+            <Grid x:Name="gridZoom" Background="#00000000">
+                <Canvas x:Name="_canvas" Width="50000" Height="50000" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Grid>
+        </ScrollViewer>
+
+        <Obany_UI_Controls:ThemeBorder x:Name="borderZoomSlider" BorderThickness="2" Padding="7" Margin="20,20,20,20" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Height="24">
+                <TextBlock x:Name="labelZoom" VerticalAlignment="Center" FontSize="12" TextWrapping="NoWrap" Margin="0,0,10,0">Zoom</TextBlock>
+                <Slider x:Name="sliderZoom" VerticalAlignment="Center" Width="120" Orientation="Horizontal" />
+            </StackPanel>
+        </Obany_UI_Controls:ThemeBorder>
+
+        <Obany_UI_Controls:ThemeBorder x:Name="borderRelevanceSlider" BorderThickness="2" Padding="7" Margin="20,20,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Height="24">
+                <TextBlock x:Name="labelRelevance" VerticalAlignment="Center" FontSize="12" TextWrapping="NoWrap" Margin="0,0,10,0">Relevance</TextBlock>
+                <Slider x:Name="sliderRelevance" VerticalAlignment="Center" Width="120" Orientation="Horizontal"/>
+            </StackPanel>
+        </Obany_UI_Controls:ThemeBorder>
+    </Grid>
+</UserControl>
