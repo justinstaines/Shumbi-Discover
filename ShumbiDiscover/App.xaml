@@ -1,0 +1,13 @@
+﻿<Application x:Class="ShumbiDiscover.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes\Custom.xaml"/>
+                <ResourceDictionary Source="Themes\Theme.xaml"/>
+                <ResourceDictionary Source="Themes\SystemIcons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

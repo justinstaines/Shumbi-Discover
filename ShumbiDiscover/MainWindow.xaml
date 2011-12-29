@@ -1,0 +1,80 @@
+﻿<Window x:Class="ShumbiDiscover.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+        xmlns:ShumbiDiscover_Core="clr-namespace:ShumbiDiscover.Core;assembly=ShumbiDiscover.Core"
+    Title="Shumbi Discover" 
+    Width="800"
+    Height="600" 
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="CanResizeWithGrip"
+    WindowStyle="None"
+    Background="{x:Null}"
+    Icon="App.ico"
+    MinWidth="250"
+    MinHeight="250">
+
+    <Obany_UI_Controls:ThemeBorder>
+        <Grid x:Name="gridWindow">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition x:Name="rowDefinitionUpdateAvailable" Height="0"/>
+            </Grid.RowDefinitions>
+
+            <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderCaption" Padding="10,0,10,0" BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="8"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" x:Name="imageWindowIcon" Source="App.Ico" Stretch="Fill" VerticalAlignment="Center" Width="32" Height="32"/>
+                    <Thumb Grid.Column="2" x:Name="thumbWindowDrag" Opacity="0" DragDelta="thumbWindowDrag_DragDelta" MouseDoubleClick="thumbWindowDrag_MouseDoubleClick" />
+                    <TextBlock Grid.Column="2" x:Name="textWindowTitle" FontSize="16"  VerticalAlignment="Center" IsHitTestVisible="false" Text="{Binding Path=Title, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" TextTrimming="CharacterEllipsis"/>
+                    <Button Grid.Column="3" x:Name="buttonMinimize" VerticalAlignment="Center" Width="32" Height="32" Click="buttonMinimize_Click">
+                        <Rectangle Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource IconMinimise}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Button>
+                    <Button Grid.Column="4" x:Name="buttonMaximize" VerticalAlignment="Center" Width="32" Height="32" Click="buttonMaximize_Click">
+                        <Rectangle Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource IconMaximise}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Button>
+                    <Button Grid.Column="4" x:Name="buttonRestore" VerticalAlignment="Center" Width="32" Height="32" Click="buttonRestore_Click">
+                        <Rectangle Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource IconRestore}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Button>
+                    <Button Grid.Column="5" x:Name="buttonClose" VerticalAlignment="Center" Width="32" Height="32" Click="buttonClose_Click" Background="#FFFF0000">
+                        <Rectangle Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Rectangle.Fill>
+                                <VisualBrush Visual="{StaticResource IconClose}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Button>
+                </Grid>
+            </Obany_UI_Controls:ThemeCaptionBorder>
+
+            <Grid x:Name="gridMain" Grid.Row="1">
+                <ShumbiDiscover_Core:CoreInterface x:Name="coreInterface"/>
+            </Grid>
+            
+            <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderUpdateAvailable" Grid.Row="2" Visibility="Collapsed">
+                <TextBlock x:Name="textUpdateAvailable" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" FontSize="14" Foreground="#FF00FF00" MouseLeftButtonUp="textUpdateAvailable_MouseLeftButtonUp">A new version of the software is available, click here to download it.</TextBlock>
+            </Obany_UI_Controls:ThemeCaptionBorder>
+            
+            <Obany_UI_Controls:DialogPanel x:Name="panelDialog" Grid.Row="1" Grid.RowSpan="2" DisableElement="{Binding ElementName=gridMain}"/>
+        </Grid>
+    </Obany_UI_Controls:ThemeBorder>
+</Window>

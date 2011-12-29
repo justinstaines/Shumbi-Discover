@@ -1,0 +1,72 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+    xmlns:ShumbiDiscover_Visualisations="clr-namespace:ShumbiDiscover.Visualisations;assembly=ShumbiDiscover.Visualisations"
+    xmlns:ShumbiDiscover_Controls="clr-namespace:ShumbiDiscover.Controls;assembly=ShumbiDiscover.Controls"
+                    >
+
+    <SolidColorBrush x:Key="Theme_GlyphBrush" Color="#AAFFFFFF" />
+
+    <VisualBrush x:Key="Theme_SelectedGlowBrush">
+        <VisualBrush.Visual>
+            <Grid>
+                <Rectangle Fill="{DynamicResource Theme_BackgroundGradient}"/>
+                <Rectangle Fill="{DynamicResource Theme_MouseOverBackgroundGradient}"/>
+                <Path Margin="0,0,0,6" Stretch="Fill" Data="M100,12.903966 C59.117226,15.115555 23.108757,29.203354 -1.2437163E-14,60 L-3.2684966E-13,0 C12,-2.8610229E-06 100,0 100,0" Fill="{DynamicResource Theme_GlossGradient}"/>
+            </Grid>                
+         </VisualBrush.Visual>
+    </VisualBrush>
+    
+    <SolidColorBrush x:Key="Theme_WindowBorderBrush" Color="#FF444444" />
+    <LinearGradientBrush x:Key="Theme_WindowBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF222222" Offset="0"/>
+        <GradientStop Color="#FF000000" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="Theme_WindowCaptionBorderBrush" Color="#FF666666" />
+    <LinearGradientBrush x:Key="Theme_WindowCaptionBackgroundBrush" EndPoint="0.682,0.019" StartPoint="0.682,0.609">
+        <GradientStop Color="#FF111111" Offset="0" />
+        <GradientStop Color="#FF666666" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- App Specific Styles -->
+    <Style TargetType="ShumbiDiscover_Visualisations:NetworkVisualNode">
+        <Setter Property="SelectedBrush">
+            <Setter.Value>
+                  <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Grid>
+                            <Rectangle Fill="{DynamicResource Theme_BackgroundGradient}"/>
+                            <Rectangle Fill="{DynamicResource Theme_MouseOverBackgroundGradient}"/>
+                            <Path Margin="0,0,0,6" Stretch="Fill" Data="M100,12.903966 C59.117226,15.115555 23.108757,29.203354 -1.2437163E-14,60 L-3.2684966E-13,0 C12,-2.8610229E-06 100,0 100,0" Fill="{DynamicResource Theme_GlossGradient}"/>
+                        </Grid>                
+                     </VisualBrush.Visual>
+                </VisualBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ShumbiDiscover_Visualisations:TagCloudVisualNode">
+        <Setter Property="SelectedBrush">
+            <Setter.Value>
+                 <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Grid>
+                            <Rectangle Fill="{DynamicResource Theme_BackgroundGradient}"/>
+                            <Rectangle Fill="{DynamicResource Theme_MouseOverBackgroundGradient}"/>
+                            <Path Margin="0,0,0,6" Stretch="Fill" Data="M100,12.903966 C59.117226,15.115555 23.108757,29.203354 -1.2437163E-14,60 L-3.2684966E-13,0 C12,-2.8610229E-06 100,0 100,0" Fill="{DynamicResource Theme_GlossGradient}"/>
+                        </Grid>                
+                     </VisualBrush.Visual>
+                </VisualBrush>
+            </Setter.Value>
+        </Setter>
+     </Style>
+    
+    
+    <Style TargetType="ShumbiDiscover_Controls:SearchVisualisationTab">
+        <Setter Property="GlyphBrush" Value="{StaticResource Theme_GlyphBrush}"/>
+    </Style>
+
+</ResourceDictionary>
