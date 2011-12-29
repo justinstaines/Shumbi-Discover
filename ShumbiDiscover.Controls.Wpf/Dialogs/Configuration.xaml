@@ -1,0 +1,246 @@
+﻿<UserControl x:Class="ShumbiDiscover.Controls.Dialogs.Configuration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+             xmlns:ShumbiDiscover_Controls_Converters="clr-namespace:ShumbiDiscover.Controls.Converters"
+             Height="500">
+    <UserControl.Resources>
+        <ShumbiDiscover_Controls_Converters:StringFormatConverter x:Key="StringFormatConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Obany_UI_Controls:ThemeBorder x:Name="borderActions" BorderThickness="0,0,0,1" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30">
+                <ToggleButton x:Name="buttonSettings" Click="buttonSettings_Click" Margin="5,0,5,0" IsChecked="True">
+                    <TextBlock x:Name="labelSettings" Margin="5">Settings</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="buttonProxy" Click="buttonProxy_Click" Margin="5,0,5,0">
+                    <TextBlock x:Name="labelProxy" Margin="5">Proxy</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="buttonAccount" Click="buttonAccount_Click" Margin="5,0,5,0">
+                    <TextBlock x:Name="labelAccount" Margin="5">Account</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="buttonProviders" Click="buttonProviders_Click" Margin="5,0,5,0">
+                    <TextBlock x:Name="labelProviders" Margin="5">Providers</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="buttonLicenseInformation" Click="buttonLicenseInformation_Click" Margin="5,0,5,0">
+                    <TextBlock x:Name="labelLicenseInformation" Margin="5">License Information</TextBlock>
+                </ToggleButton>
+            </StackPanel>
+       
+        </Obany_UI_Controls:ThemeBorder>
+
+        <ContentControl x:Name="contentControlSettings" Margin="20" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 0. Language -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 1. Gap -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 2. History -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 3. History Items To Keep -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 4. History Space Used -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 5. Gap -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 6. Thumbnails -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 7. Thumbnail Cache Size -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 8. Thumbnail Cache Space Used -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 9. Thumbnail Cache Location -->
+                    <RowDefinition Height="40"></RowDefinition>
+                    <!-- 10. Thumbnail Cache Open -->
+                    <RowDefinition Height="40"></RowDefinition>
+                    <!-- 11. Thumbnail Cache Empty -->
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" x:Name="labelLanguage" VerticalAlignment="Center">Language</TextBlock>
+                <ComboBox Grid.Column="2" x:Name="listLanguage" Width="250" Height="30" SelectionChanged="listLanguage_SelectionChanged" HorizontalAlignment="Left"></ComboBox>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" x:Name="labelHistory" VerticalAlignment="Center" FontSize="16">History</TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="3" x:Name="labelHistoryToKeep" VerticalAlignment="Center">Items To Keep</TextBlock>
+                <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal">
+                    <Slider x:Name="sliderHistoryToKeep" Margin="0,0,0,0" Width="200" Minimum="1" Maximum="100" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBlock x:Name="textHistoryToKeep" Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding ElementName=sliderHistoryToKeep, Path=Value, Converter={StaticResource StringFormatConverter}, ConverterParameter=\{0:0\}}"></TextBlock>
+                </StackPanel>
+                <TextBlock Grid.Column="0" Grid.Row="4" x:Name="labelHistorySpaceUsed" VerticalAlignment="Center">Space Used</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="4" x:Name="textHistorySpaceUsed" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" x:Name="labelThumbnails" VerticalAlignment="Center" FontSize="16">Thumbnails</TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="7" x:Name="labelThumbnailsCacheSize" VerticalAlignment="Center">Cache Size</TextBlock>
+                <StackPanel Grid.Column="2" Grid.Row="7" Orientation="Horizontal" x:Name="panelThumbnailCacheSize">
+                    <Slider x:Name="sliderThumbnailCacheSize" Margin="0,0,0,0" Width="200" Minimum="1" Maximum="1024" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBlock x:Name="textThumbnailCacheSize" Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding ElementName=sliderThumbnailCacheSize, Path=Value, Converter={StaticResource StringFormatConverter}, ConverterParameter=\{0:0\}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">MB</TextBlock>
+                </StackPanel>
+
+                <TextBlock Grid.Column="0" Grid.Row="8" x:Name="labelThumbnailsCacheSpaceUsed" VerticalAlignment="Center">Space Used</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="8" x:Name="textThumbnailCacheSpaceUsed" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="9" x:Name="labelThumbnailCacheLocation" VerticalAlignment="Center">Location</TextBlock>
+                <TextBox Grid.Column="2" Grid.Row="9" x:Name="textThumbnailCacheLocation" Height="30" IsReadOnly="true" HorizontalAlignment="Stretch"></TextBox>
+
+                <Button x:Name="buttonThumbnailCacheOpen" Grid.Column="2" Grid.Row="10" Height="30" MaxWidth="250" Click="buttonThumbnailCacheOpen_Click" HorizontalAlignment="Left">
+                    <TextBlock x:Name="labelButtonThumbnailCacheOpen">Open</TextBlock>
+                </Button>
+                <Button x:Name="buttonThumbnailCacheEmpty" Grid.Column="2" Grid.Row="11" Height="30" MaxWidth="250" Click="buttonThumbnailCacheEmpty_Click" HorizontalAlignment="Left">
+                    <TextBlock x:Name="labelButtonThumbnailCacheEmpty">Empty</TextBlock>
+                </Button>
+            </Grid>
+        </ContentControl>
+
+        <ContentControl x:Name="contentControlProxy" Margin="20" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <!-- 0. No Proxy -->
+                    <RowDefinition Height="40"></RowDefinition>
+                    <!-- 1. System Proxy (Internet Explorer) -->
+                    <RowDefinition Height="40"></RowDefinition>
+                    <!-- 2. Manual -->
+                    <RowDefinition Height="80"></RowDefinition>
+                    <!-- 3. Proxy Server -->
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0" x:Name="labelNoProxy" VerticalAlignment="Center">No Proxy</TextBlock>
+                <RadioButton Grid.Column="2" Grid.Row="0" x:Name="checkNoProxy" HorizontalAlignment="Left" VerticalAlignment="Center" GroupName="groupProxy" Checked="groupProxy_Checked"></RadioButton>
+                
+                <TextBlock Grid.Column="0" Grid.Row="1" x:Name="labelSystemProxy" VerticalAlignment="Center">System Proxy</TextBlock>
+                <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                    <RadioButton x:Name="checkSystemProxy" HorizontalAlignment="Left" VerticalAlignment="Center" GroupName="groupProxy" Checked="groupProxy_Checked"></RadioButton>
+                    <TextBlock x:Name="labelSystemProxyDefault" VerticalAlignment="Center" Margin="5,0,5,0">(Default)</TextBlock>
+                    <TextBlock x:Name="labelSystemProxyInteretExplorer" VerticalAlignment="Center">Same As Internet Explorer</TextBlock>
+                </StackPanel>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" x:Name="labelWebProxy" VerticalAlignment="Center">Web Proxy</TextBlock>
+                <RadioButton Grid.Column="2" Grid.Row="2" x:Name="checkWebProxy" HorizontalAlignment="Left" VerticalAlignment="Center" GroupName="groupProxy" Checked="groupProxy_Checked"></RadioButton>
+
+                <Grid Grid.Row="3" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="5"></ColumnDefinition>
+                        <ColumnDefinition Width="195"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <!-- 0. Server -->
+                        <RowDefinition Height="30"></RowDefinition>
+                        <!-- 1. Port -->
+                    </Grid.RowDefinitions>                    
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="0" x:Name="labelProxyAddress" VerticalAlignment="Center">Address</TextBlock>
+                    <TextBox Grid.Column="2" Grid.Row="0" x:Name="textProxyAddress" HorizontalAlignment="Left" VerticalAlignment="Center" Width="195"></TextBox>
+                    
+                    <TextBlock Grid.Column="0" Grid.Row="1" x:Name="labelProxyPort" VerticalAlignment="Center">Port</TextBlock>
+                    <TextBox Grid.Column="2" Grid.Row="1" x:Name="textProxyPort" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"></TextBox>
+                </Grid>
+            </Grid>
+        </ContentControl>
+        
+        <ContentControl x:Name="contentControlAccount" Margin="20" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 2. Change Password Label -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 3. Current Password -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 4. New Password -->
+                    <RowDefinition Height="5"></RowDefinition>
+                    <!-- 5. Gap -->
+                    <RowDefinition Height="30"></RowDefinition>
+                    <!-- 6.  Change Password Button-->
+                    <RowDefinition Height="5"></RowDefinition>
+                    <!-- 7. Gap -->
+                    <RowDefinition Height="60"></RowDefinition>
+                    <!-- 8.  Result -->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="labelChangePassword" VerticalAlignment="Center" FontSize="16">Change Password</TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" x:Name="labelCurrentPassword" VerticalAlignment="Center">Current Password</TextBlock>
+                <PasswordBox Grid.Column="2" Grid.Row="1" x:Name="textCurrentPassword" Width="250" Height="30"></PasswordBox>
+
+                <TextBlock Grid.Column="0" Grid.Row="2" x:Name="labelNewPassword" VerticalAlignment="Center">New Password</TextBlock>
+                <PasswordBox Grid.Column="2" Grid.Row="2" x:Name="textNewPassword" Width="250" Height="30"></PasswordBox>
+
+                <Button Grid.Column="2" Grid.Row="4" x:Name="buttonChangePassword" Height="30" MaxWidth="250" Click="buttonChangePassword_Click">
+                    <TextBlock x:Name="labelButtonChangePassword">Change Password</TextBlock>
+                </Button>
+
+                <TextBlock Grid.Column="2" Grid.Row="6" x:Name="labelResult" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+        </ContentControl>
+        
+        <ContentControl x:Name="contentControlProviders" Margin="20" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel x:Name="panelProviderConfigurationIcons" Grid.Column="0"></StackPanel>
+                <StackPanel x:Name="panelProviderConfigurationButtons" Grid.Column="2"></StackPanel>
+            </Grid>
+        </ContentControl>
+
+        <ContentControl x:Name="contentControlLicenseInformation" Margin="20" Grid.Row="1" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" x:Name="labelLicenseType" VerticalAlignment="Center">License Type</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="0" x:Name="labelLicenseTypeValue" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" x:Name="labelLicenseExpiry" VerticalAlignment="Center">License Expiry Date</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="1" x:Name="labelLicenseExpiryValue" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" x:Name="labelLicenseDaysRemaining" VerticalAlignment="Center">Days Remaining</TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="2" x:Name="labelLicenseDaysRemainingValue" VerticalAlignment="Center"></TextBlock>
+                <Button Grid.Column="2" Grid.Row="4" x:Name="buttonPurchaseLicense" VerticalAlignment="Center" Visibility="Collapsed" MaxWidth="250" Click="buttonPurchaseLicense_Click">
+                    <TextBlock x:Name="labelPurchaseLicenseButton" VerticalAlignment="Center">Purchase License</TextBlock>
+                </Button>
+            </Grid>
+        </ContentControl>
+
+    </Grid>
+</UserControl>

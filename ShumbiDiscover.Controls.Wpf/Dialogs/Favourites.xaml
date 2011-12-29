@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="ShumbiDiscover.Controls.Dialogs.Favourites"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+    xmlns:ShumbiDiscover_Controls_Converters="clr-namespace:ShumbiDiscover.Controls.Converters"
+    >
+    <UserControl.Resources>
+        <ShumbiDiscover_Controls_Converters:FavouriteIconConverter x:Key="FavouriteIconConverter"/>
+        <ShumbiDiscover_Controls_Converters:FavouriteNameConverter x:Key="FavouriteNameConverter"/>
+
+       <Obany_UI_Controls:DragDropTreeViewItemTemplate x:Key="FavouritesHierarchicalDataTemplate" ItemsSource="{Binding Children}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Converter={StaticResource FavouriteIconConverter}}" Width="32" Height="32" Grid.Column="0"/>
+                <TextBlock x:Name="labelName" Foreground="#FFFFFFFF" Text="{Binding Name}" VerticalAlignment="Center" Grid.Column="1" Margin="5,0,5,0"/>
+                <TextBlock x:Name="labelInformation" Foreground="#FFFFFFFF" Text="{Binding Converter={StaticResource FavouriteNameConverter}}" VerticalAlignment="Center" Grid.Column="2"/>
+            </Grid>
+        </Obany_UI_Controls:DragDropTreeViewItemTemplate>
+     
+    </UserControl.Resources>
+    <Grid Margin="20,20,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <Button x:Name="buttonFavouritesNewFolder" Click="buttonFavouritesNewFolder_Click" Margin="5,0,5,0" Height="40">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Image Source="../Resources/FavouritesNewFolder32.png" Stretch="None"/>
+                    <TextBlock x:Name="labelFavouritesNewFolder" VerticalAlignment="Center" Margin="5,0,0,0">New Folder</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="buttonFavouritesRename" Click="buttonFavouritesRename_Click" Margin="5,0,5,0" Height="40">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Image Source="../Resources/FavouritesRename32.png" Stretch="None"/>
+                    <TextBlock x:Name="labelFavouritesRename" VerticalAlignment="Center" Margin="5,0,0,0">Rename</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="buttonFavouritesDelete" Click="buttonFavouritesDelete_Click" Margin="5,0,5,0" Height="40">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Image Source="../Resources/FavouritesDelete32.png" Stretch="None"/>
+                    <TextBlock x:Name="labelFavouritesDelete" VerticalAlignment="Center" Margin="5,0,0,0">Delete</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="buttonFavouritesOpen" Click="buttonFavouritesOpen_Click" Margin="5,0,5,0" Height="40">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Image Source="../Resources/FavouritesOpen32.png" Stretch="None"/>
+                    <TextBlock x:Name="labelFavouritesOpen" VerticalAlignment="Center" Margin="5,0,0,0">Open</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <Obany_UI_Controls:ThemeBorder Grid.Row="2">
+            <Obany_UI_Controls:DragDropTreeView x:Name="treeView" Background="Transparent" BorderThickness="0"
+               SelectedItemChanged="treeView_SelectedItemChanged" Height="400"
+               MouseWheel="treeView_MouseWheel">
+                                                <!--ItemTemplate="{StaticResource FavouritesHierarchicalDataTemplate}">-->
+            </Obany_UI_Controls:DragDropTreeView>
+        </Obany_UI_Controls:ThemeBorder>
+
+        <Canvas x:Name="canvasDragDrop" Grid.Row="2" MouseLeftButtonDown="canvasDragDrop_MouseLeftButtonDown" MouseLeftButtonUp="canvasDragDrop_MouseLeftButtonUp" MouseMove="canvasDragDrop_MouseMove"/>
+    </Grid>
+</UserControl>

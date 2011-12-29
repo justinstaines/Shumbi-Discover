@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="PASSWORDCHANGE" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="CONFIGURATIONDELETE" xml:space="preserve">
+    <value>Delete Configuration</value>
+  </data>
+  <data name="CONFIGURE" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="PASSWORDCURRENT" xml:space="preserve">
+    <value>Current Password</value>
+  </data>
+  <data name="LICENSEDAYSREMAINING" xml:space="preserve">
+    <value>Remaining Days</value>
+  </data>
+  <data name="DOCUMENTCOMPLETEOPENURL" xml:space="preserve">
+    <value>Open Address</value>
+  </data>
+  <data name="DOCUMENTCOMPLETETITLE" xml:space="preserve">
+    <value>The upload has completed successfully. Copy and paste the address from the text box below, alternatively click the open button to view the page in your web browser.</value>
+  </data>
+  <data name="DOCUMENTCOMPLETEURL" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="DOCUMENTISPUBLIC" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="DOCUMENTKEYWORDS" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="DOCUMENTKEYWORDSINFO" xml:space="preserve">
+    <value>Enter keywords, separated by commas.</value>
+  </data>
+  <data name="DOCUMENTTITLE" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="DOCUMENTVIEWERADDRESS" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="DOCUMENTVIEWERCAROUSEL" xml:space="preserve">
+    <value>Carousel</value>
+  </data>
+  <data name="DOCUMENTVIEWERDESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DOCUMENTVIEWERLIST" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="DOCUMENTVIEWERRANK" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="DOCUMENTVIEWERSEARCHENGINES" xml:space="preserve">
+    <value>Search Engines</value>
+  </data>
+  <data name="DOCUMENTVIEWERTILES" xml:space="preserve">
+    <value>Tiles</value>
+  </data>
+  <data name="DOCUMENTVIEWERTITLE" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="EMAILADDRESS" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="FAVOURITENAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="FAVOURITESDELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="FAVOURITESNEWFOLDER" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="FAVOURITESOPEN" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="FAVOURITESRENAME" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="HISTORY" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="HISTORYCLEAR" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="HISTORYDATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="HISTORYDELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="HISTORYOPEN" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="HISTORYSEARCH" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="HISTORYSEARCHENGINES" xml:space="preserve">
+    <value>Search Engines</value>
+  </data>
+  <data name="HISTORYSPACEUSED" xml:space="preserve">
+    <value>Space Used</value>
+  </data>
+  <data name="HISTORYTOKEEP" xml:space="preserve">
+    <value>Items To Keep</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LICENSEEXPIRYDATE" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="LICENSEINFORMATION" xml:space="preserve">
+    <value>License Information</value>
+  </data>
+  <data name="LICENSETYPE" xml:space="preserve">
+    <value>License Type</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LOGINFAILED" xml:space="preserve">
+    <value>Username or password was incorrect.</value>
+  </data>
+  <data name="LOGINSUCCESS" xml:space="preserve">
+    <value>Authentication has successfully completed.</value>
+  </data>
+  <data name="PASSWORDNEW" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PASSWORDCHANGEFAIL" xml:space="preserve">
+    <value>The password change did not succeed.</value>
+  </data>
+  <data name="PASSWORDCHANGESUCCESS" xml:space="preserve">
+    <value>The password was successfully changed.</value>
+  </data>
+  <data name="ACCOUNTS" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="LICENSEPURCHASE" xml:space="preserve">
+    <value>Purchase License</value>
+  </data>
+  <data name="QUESTIONCLEARHISTORY" xml:space="preserve">
+    <value>Are you sure you want to clear the history?</value>
+  </data>
+  <data name="QUESTIONDELETEFAVOURITE" xml:space="preserve">
+    <value>Are you sure you want to delete the favorite?</value>
+  </data>
+  <data name="QUESTIONDELETEFAVOURITEFOLDER" xml:space="preserve">
+    <value>Are you sure you want to delete the folder and all of its contents?</value>
+  </data>
+  <data name="QUESTIONDELETEHISTORY" xml:space="preserve">
+    <value>Are you sure you want to delete the history entry?</value>
+  </data>
+  <data name="SEARCHGROUPVIDEOS" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="SEARCHGROUPPICTURES" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="SEARCHGROUPSOCIAL" xml:space="preserve">
+    <value>Social Web</value>
+  </data>
+  <data name="SEARCHGROUPWEB" xml:space="preserve">
+    <value>Web Pages</value>
+  </data>
+  <data name="SEARCHGROUPDOCUMENTS" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="SETTINGS" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SIGNUP" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="THUMBNAILEMPTY" xml:space="preserve">
+    <value>Empty Cache</value>
+  </data>
+  <data name="THUMBNAILEMPTYQUESTION" xml:space="preserve">
+    <value>Are you sure you want to empty the thumbnail cache?</value>
+  </data>
+  <data name="THUMBNAILLOCATION" xml:space="preserve">
+    <value>Cache Location</value>
+  </data>
+  <data name="THUMBNAILLOCATIONOPEN" xml:space="preserve">
+    <value>Open Cache</value>
+  </data>
+  <data name="THUMBNAILS" xml:space="preserve">
+    <value>Thumbnail Cache</value>
+  </data>
+  <data name="THUMBNAILSIZE" xml:space="preserve">
+    <value>Cache Size</value>
+  </data>
+  <data name="THUMBNAILSPACEUSED" xml:space="preserve">
+    <value>Space Used</value>
+  </data>
+  <data name="PROXY" xml:space="preserve">
+    <value>Proxy</value>
+  </data>
+  <data name="PROXYADDRESS" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PROXYNONE" xml:space="preserve">
+    <value>No Proxy</value>
+  </data>
+  <data name="PROXYPORT" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="PROXYSYSTEM" xml:space="preserve">
+    <value>System Proxy</value>
+  </data>
+  <data name="PROXYSYSTEMDEFAULT" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="PROXYSYSTEMINTERNETEXPLORER" xml:space="preserve">
+    <value>The same as Internet Explorer</value>
+  </data>
+  <data name="PROXYMANUAL" xml:space="preserve">
+    <value>Manual Proxy</value>
+  </data>
+  <data name="PROPERTIES" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+</root>

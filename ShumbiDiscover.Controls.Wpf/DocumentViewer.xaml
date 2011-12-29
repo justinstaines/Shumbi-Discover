@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="ShumbiDiscover.Controls.DocumentViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+    xmlns:ShumbiDiscover_Controls_Converters="clr-namespace:ShumbiDiscover.Controls.Converters">
+    <UserControl.Resources>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemTitleConverter x:Key="TitleConverter"/>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemDescriptionConverter x:Key="DescriptionConverter"/>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemUrlConverter x:Key="UrlConverter"/>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemThumbnailConverter x:Key="ThumbnailConverter"/>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemRankConverter x:Key="RankConverter"/>
+        <ShumbiDiscover_Controls_Converters:SearchAggregateItemProvidersConverter x:Key="ProvidersConverter"/>
+
+        <DataTemplate x:Key="listItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Image x:Name="imageThumbnail" Source="{Binding ThumbnailUrl, Converter={StaticResource ThumbnailConverter}}" Grid.Column="0" Margin="0,0,5,0" VerticalAlignment="Center" ImageFailed="imageThumbnail_ImageFailed"/>
+                
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textTitle" Text="{Binding Title, Converter={StaticResource TitleConverter}}" TextWrapping="Wrap" Margin="0,5,5,5" FontSize="12"/>
+                        <TextBlock x:Name="textRank" Text="{Binding ProviderRanks, Converter={StaticResource RankConverter}}" TextAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                    <TextBlock x:Name="textDescription" Text="{Binding Description, Converter={StaticResource DescriptionConverter}}" TextWrapping="Wrap" Margin="0,0,0,5" Opacity="0.7"/>
+                    <TextBlock x:Name="textUrl" Text="{Binding OpenUrl, Converter={StaticResource UrlConverter}}" TextWrapping="Wrap" Margin="0,0,0,5" Cursor="Hand" MouseLeftButtonUp="textItemAddress_MouseLeftButtonUp" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="textProviders" Text="{Binding ProviderRanks, Converter={StaticResource ProvidersConverter}}" TextWrapping="Wrap" TextAlignment="Right" Margin="0,0,0,5"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock x:Name="documentViewerTitle" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" Text="Document Viewer" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30">
+                <ToggleButton x:Name="buttonCarousel" Click="buttonCarousel_Click" Margin="0,0,10,0">
+                    <TextBlock x:Name="labelCarousel">Carousel</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="buttonList" Click="buttonList_Click">
+                    <TextBlock x:Name="labelList">List</TextBlock>
+                </ToggleButton>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="gridCarousel" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition x:Name="rowDefinitionInformation" Height="160"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*" MinWidth="300"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Obany_UI_Controls:CarouselPanel x:Name="carousel" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3" ElementWidth="300" ElementHeight="500">
+                <Obany_UI_Controls:CarouselPanel.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="500" Width="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition Height="200"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Background="#FF000000" BorderThickness="1" BorderBrush="#FFFFFFFF">
+                                <Grid>
+                                    <TextBlock x:Name="textTitle" Foreground="#FFFFFFFF" Text="{Binding Title, Converter={StaticResource TitleConverter}}" FontSize="14" TextWrapping="Wrap" Margin="10,10,10,10"/>
+                                    <Image x:Name="imageThumbnail" Source="{Binding ThumbnailUrl, Converter={StaticResource ThumbnailConverter}}" Stretch="Fill" ImageFailed="imageThumbnail_ImageFailed"  />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="1" Background="#FF000000" BorderThickness="1" BorderBrush="#FFFFFFFF">
+                                <Border.OpacityMask>
+                                    <LinearGradientBrush EndPoint="0.5,0.84" StartPoint="0.5,-0.2">
+                                        <GradientStop Color="#4D000000"/>
+                                        <GradientStop Color="#00FFFFFF" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.OpacityMask>
+                                <Grid RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <ScaleTransform ScaleY="-1"></ScaleTransform>
+                                    </Grid.RenderTransform>
+                                    <TextBlock x:Name="textTitleReflection" Text="{Binding Title, Converter={StaticResource TitleConverter}}" FontSize="14"  TextWrapping="Wrap" Margin="10,10,10,10"/>
+                                    <Image x:Name="imageThumbnailReflection" Source="{Binding ThumbnailUrl, Converter={StaticResource ThumbnailConverter}}" Stretch="Fill" ImageFailed="imageThumbnail_ImageFailed" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </Obany_UI_Controls:CarouselPanel.ItemTemplate>
+            </Obany_UI_Controls:CarouselPanel>
+
+            <Obany_UI_Controls:ScrollNavigator x:Name="scrollNavigator" Grid.Row="1" Grid.Column="1" NavigatorValueChanged="scrollNavigator_NavigatorValueChanged"/>
+
+            <Obany_UI_Controls:ThemeBorder x:Name="panelInformation" BorderThickness="1" Grid.Row="3" Grid.Column="1" Padding="10,10,10,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="0.8*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" x:Name="labelItemTitle" Text="Title"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" x:Name="labelItemDescription" Text="Description"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" x:Name="labelItemAddress" Text="Address"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" x:Name="labelItemRank" Text="Rank"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" x:Name="labelItemSearchProviders" Text="Providers"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" x:Name="textItemTitle"/>
+                    <ScrollViewer x:Name="scrollViewerDescription" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="2">
+                        <TextBlock x:Name="textItemDescription" TextWrapping="Wrap"/>
+                    </ScrollViewer>
+                    <TextBlock Grid.Row="2" Grid.Column="2" x:Name="textItemAddress" Cursor="Hand" MouseLeftButtonUp="textItemAddress_MouseLeftButtonUp"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" x:Name="textItemRank"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" x:Name="textItemSearchProviders"/>
+                </Grid>
+            </Obany_UI_Controls:ThemeBorder>
+        </Grid>
+            
+        <Grid Grid.Row="1" Margin="50,10,50,10" x:Name="gridList">
+            <Obany_UI_Controls:ThemeBorder Grid.Row="0">
+                <ListBox 
+                    x:Name="listBoxSearchItems" 
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    ItemTemplate="{StaticResource listItemTemplate}"
+                    MouseWheel="listBoxSearchItems_MouseWheel">
+                </ListBox>
+            </Obany_UI_Controls:ThemeBorder>
+        </Grid>
+        
+        <Grid x:Name="gridBuffer" Visibility="Collapsed"></Grid>
+        </Grid>
+
+</UserControl>

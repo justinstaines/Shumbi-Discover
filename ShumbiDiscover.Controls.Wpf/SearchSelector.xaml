@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="ShumbiDiscover.Controls.SearchSelector"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI">
+    
+    <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderMain" BorderThickness="2,2,2,2" Padding="8,8,8,8">
+    </Obany_UI_Controls:ThemeCaptionBorder>
+
+</UserControl>
