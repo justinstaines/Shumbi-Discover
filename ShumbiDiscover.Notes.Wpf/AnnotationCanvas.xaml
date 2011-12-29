@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="ShumbiDiscover.Notes.AnnotationCanvas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	 xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+    xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+	 mc:Ignorable="d"
+	 d:DesignWidth="1024"
+	 d:DesignHeight="768">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="Theme_ApplicationControl" TargetType="Button">
+            <Grid x:Name="mainGrid" RenderTransformOrigin="0.5,0.5">
+                <vsm:VisualStateManager.VisualStateGroups>
+                    <vsm:VisualStateGroup x:Name="CommonStates">
+                        <vsm:VisualState x:Name="MouseOver">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="1.1" Duration="0:0:0.150" />
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="1.1" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="Normal">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.150" />
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="Disabled">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="_content" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.3" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                    </vsm:VisualStateGroup>
+                </vsm:VisualStateManager.VisualStateGroups>
+
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        <SkewTransform AngleX="0" AngleY="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform X="0" Y="0"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+
+                <ContentPresenter x:Name="_content" Opacity="1"/>
+            </Grid>
+        </ControlTemplate>
+    
+        <DataTemplate x:Key="dtColour">
+            <StackPanel Orientation="Horizontal" Height="22">
+                <Rectangle Width="20" Height="20" Fill="{Binding Brush}" Margin="4,4,4,4" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Name}" Foreground="White" FontSize="12" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="dtPen">
+            <StackPanel Orientation="Horizontal" Height="22">
+                <Rectangle Width="20" Height="{Binding Thickness}" Fill="White" Margin="4,4,4,4" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Name}" Foreground="White" FontSize="12" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid x:Name="gridMain">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Obany_UI_Controls:ThemeCaptionBorder Grid.Row="0" x:Name="borderToolbar" BorderThickness="0,0,0,1" Padding="10,0,10,0">
+                <Grid x:Name="gridToolBar" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="170"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="buttonExit" Grid.Column="0" Click="buttonExit_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/FileExit32.png"/>
+                            <TextBlock x:Name="labelExitButton" HorizontalAlignment="Center" Text="Exit" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonSavePdf" Grid.Column="2" Click="buttonSavePdf_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/SavePdf32.png"/>
+                            <TextBlock x:Name="labelSavePdfButton" HorizontalAlignment="Center" Text="Save Pdf" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonSaveXps" Grid.Column="3" Click="buttonSaveXps_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/SaveXps32.png"/>
+                            <TextBlock x:Name="labelSaveXpsButton" HorizontalAlignment="Center" Text="Save Xps" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonSaveJpg" Grid.Column="4" Click="buttonSaveJpg_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/SaveJpg32.png"/>
+                            <TextBlock x:Name="labelSaveJpgButton" HorizontalAlignment="Center" Text="Save Image" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="buttonShareScribd" Grid.Column="6" Click="buttonShareScribd_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/ShareScribd32.png"/>
+                            <TextBlock x:Name="labelShareScribdButton" HorizontalAlignment="Center" Text="Share On Scribd" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button x:Name="buttonBallpoint" Grid.Column="8" Click="buttonBallpoint_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/BallpointPen32.png"/>
+                            <TextBlock x:Name="labelBallpointButton" HorizontalAlignment="Center" Text="Ballpoint" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonFeltTip" Grid.Column="9" Click="buttonFeltTip_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/FeltTipPen32.png"/>
+                            <TextBlock x:Name="labelFeltTipButton" HorizontalAlignment="Center" Text="Felt Tip" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonHighlighter" Grid.Column="10" Click="buttonHighlighter_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/Highlighter32.png"/>
+                            <TextBlock x:Name="labelHighlighterButton" HorizontalAlignment="Center" Text="Highlighter" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="buttonDeleteLastInk" Grid.Column="12" Click="buttonDeleteLastInk_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/DeleteLastInk32.png"/>
+                            <TextBlock x:Name="labelDeleteLastInkButton" HorizontalAlignment="Center" Text="Delete Last Ink" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="buttonDeleteAllInk" Grid.Column="13" Click="buttonDeleteAllInk_Click" Template="{StaticResource Theme_ApplicationControl}">
+                        <StackPanel Orientation="Vertical">
+                            <Image Height="32" Width="32" Source="Resources/DeleteAllInk32.png"/>
+                            <TextBlock x:Name="labelDeleteAllInkButton" HorizontalAlignment="Center" Text="Delete All Ink" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="15">
+                        <ComboBox x:Name="colourCombo" SelectionChanged="colourCombo_SelectionChanged" Width="150" Height="32" ItemTemplate="{StaticResource dtColour}"/>
+                        <TextBlock x:Name="labelColourCombo" HorizontalAlignment="Center" Text="Pen Colour" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Column="16">
+                            <ComboBox x:Name="thicknessCombo"  SelectionChanged="thicknessCombo_SelectionChanged" Width="150" Height="32" ItemTemplate="{StaticResource dtPen}"/>
+                        <TextBlock x:Name="labelThicknessCombo" HorizontalAlignment="Center" Text="Pen Size" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Obany_UI_Controls:ThemeCaptionBorder>
+
+            <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderTitle" Grid.Row="1" BorderThickness="0,0,0,1">
+                <TextBlock x:Name="labelTitle" Text="Title" FontSize="16" Margin="20,0,0,0" VerticalAlignment="Center"/>
+            </Obany_UI_Controls:ThemeCaptionBorder>
+            
+            <Border x:Name="borderCanvas" Grid.Row="2" Margin="40,40,40,20">
+                <ScrollViewer x:Name="_scrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Grid Background="#00000000" x:Name="gridZoom">
+                        <InkPresenter x:Name="_inkPresenter" MouseLeftButtonDown="_inkPresenter_MouseLeftButtonDown" MouseLeftButtonUp="_inkPresenter_MouseLeftButtonUp" MouseMove="_inkPresenter_MouseMove" Width="1024" Height="768" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                     </Grid>
+                </ScrollViewer>
+            </Border>
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="3">
+                <TextBlock x:Name="labelZoom">Zoom</TextBlock>
+                <Slider x:Name="sliderZoom" Width="200" Margin="5,0,5,0" ValueChanged="sliderZoom_ValueChanged"/>
+                <TextBlock x:Name="textZoom" Width="100">100%</TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
