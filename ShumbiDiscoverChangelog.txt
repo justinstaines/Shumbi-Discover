@@ -1,0 +1,199 @@
+1.3011.0418.1400
+================
+
+[Removed] - Yahoo Web Search
+[Removed] - Google Video Search
+
+1.2010.1105.1650
+================
+
+[Added] - Additional Bamboo Explore PIDs 0xD6 -> 0xDB
+[Fixed] - Exception when registry is locked down
+[Fixed] - Exception when trying to open invalid url for search result
+[Fixed] - Exception when dialog is already closed and received another close
+[Fixed] - Exception navigating to invalid carouselpanel index
+[Fixed] - Exception saving configuration data to invalid path
+
+1.1009.1018.1200
+================
+
+[Fixed] - Thread switching on search providers can cause FileLoadException when loading loading Obany.Atom for deserialization
+[Fixed] - A number of search providers hang if not enough search results available
+[Added] - Additional information added to exception logging
+
+1.1009.1015.1700
+================
+
+[Fixed] - Null reference exception after cancelling search with multiple providers selected
+[Added] - Progress dialog shows scroll bar if there are too many search providers for the size of the display
+
+1.1009.1012.1620
+================
+
+[Fixed] - Uninstaller not using correct name for product
+[Fixed] - Exception Detecting hardware for licensing
+[Fixed] - Exception when .NET 3.5 is not installed
+[Fixed] - Index out of range closing search visualisation tab button
+[Fixed] - Null reference in ShumbiDiscover.Core.CoreInterface...()
+[Fixed] - The type initializer for 'MS.Win32.Penimc.UnsafeNativeMethods' threw an exception
+[Fixed] - Retrieving the COM class factory for component with CLSID {14D4CBD9-7490-4F25-BAA6-1C5E22F6B1E3} failed
+[Fixed] - The connection was closed in Obany.Communications.HttpChannel.()
+[Fixed] - Cross thread access in Obany.Communications.HttpChannel.(IAsyncResult ar)
+[Fixed] - Timed out waiting for a program to execute Obany.Language.Xml.XmlHelper.BinaryDeserialize
+[Fixed] - Carousel flicks still active when dialog box showing
+[Fixed] - Window border state not correctly set when restarting an application that has been maximized
+
+1.1009.0917.1130
+================
+
+[Updated] - Translations German, Spanish, French, Italian, Dutch, Polish, Russian, Portugese
+[Added] - Watermarking for Annotation saving
+
+1.1009.0910.1415
+================
+
+[Fixed] - Search results which return documents launched the associated application when rendering thumbnail
+[Fixed] - If the transition to annotation and back on failed render was too fast then blank interface was displayed
+
+1.1009.0909.0930
+================
+
+[Added] - Additional .NET framework version information in exception logging
+[Fixed] - Update available text not translated
+
+1.1009.0908.1240
+================
+
+[Fixed] - Annotation toolbar translations
+
+1.1009.0907.1200
+================
+
+[Changed] - Enabled PID detection (00D0-00D5)
+[Added] - Authenticode signed application
+[Added] - Authenticode signed installer
+[Added] - Authenticode signed uninstaller
+[Added] - Installer checks for missing .NET Framework 3.5 SP1 and prompts to download and install if missing
+[Added] - Installer checks for application already running
+[Fixed] - Installer fixed issues with MUI packs
+[Fixed] - Application Start Menu shortcuts not removed on uninstall, in Vista and Windows 7
+
+1.1009.0902.1030
+================
+
+[Improved] - Translations update throughout the application
+[Improved] - Carousel swipe interaction
+[Improved] - Web page rendering for annotation more reliable
+[Improved] - Web page rendering security enhancements - activeX
+[Improved] - Chinese clustering now has stop words list
+[Changed] - Portugese stemmer hanging - temporarily removed
+[Fixed] - Main window no longer overlaps task bar when maximised
+[Fixed] - Missing translation for Powered By
+[Fixed] - Missing translation for 3rd Party Components credits
+[Updated] - iTextSharp Library to 4.1.6
+[Added] - Support for fixed Hardware PIDS, not yet enabled
+
+1.1009.0826.1930
+================
+
+[Added] - Swipe gesture 4th/5th button to carousel
+[Added] - Manual proxy configuration
+[Fixed] - Warning about tablet missing dissapears too quickly
+
+1.1009.0825.1900
+================
+
+[Added] - Proxy default credentials set
+[Added] - Flicks on carousel disabled on non Wacom versions
+[Changed] - Selected state colour for controls different to mouse over state
+[Changed] - Tree View Item is now styled with glow
+[Improved - Document view list view link click limited to text only
+[Improved] - Web page thumbnail rendering disables active controls - security and resilience
+[Improved] - Translations
+[Fixed] - Carousel no longer reacts to zoom/pinch (i.e. ctrl mouse wheel)
+
+1.1009.0824.1200
+================
+
+[Added] - New Version notification
+
+1.1009.0822.1500
+================
+
+[Added] - Bing Image search
+[Added] - Bing Video search
+[Added] - Google Image search
+[Added] - Google Video search
+[Improved] - Duplicate search result removal
+[Fixed] - Clustering produces no clusters if all results have same text
+[Fixed] - Other topics title translated
+[Fixed] - Exception on closing tabs
+
+1.1009.0821.1930
+================
+
+[Added] - Photobucket search provider
+[Changed] - Search Provider selector reorganised
+[Fixed] - Configuration History "items to keep" not always remembered correctly
+[Fixed] - Clustering not correctly using language packs
+
+1.1009.0820.1630
+================
+
+[Added] - Bamboo Explore Branding
+[Added] - Mouse Wheel Scrolling on carousel
+[Added] - Network visualisation has tablet pan and zoom support
+[Changed] - Zoom and Relevance sliders on network view rearranged
+[Added] - Double Click on item in Favourites dialog opens it
+[Added] - Search progress bar turns green on completion
+[Improved] - Stickyness of Search And Visualisation selector popups
+[Fixed] - Removed AllowTransparency flag from Main Window to fix Zombie Exception
+[Fixed] - Progress background disabling not shown when opening a favourite
+[Fixed] - When Visualisation tabs overflow the space back/forwards buttons appear
+[Fixed] - Thumbnail Location Folder in configuration now scrolls with mouse highlight
+[Fixed] - Search box now scrolls correctly with long text
+
+1.1009.0818.1800
+================
+
+[Improved] - Flick handling on carousel
+[Improved] - Zooming on annotation viewer
+[Added] - Horizontal scrolling on annotation viewer with tablet
+[Added] - Horizontal scrolling on carousel with tablet
+[Fixed] - TreeMap Visualisation not displaying
+
+1.1009.0818.1000
+================
+
+[Changed] - Updated version numbering to provider greater granularity
+[Changed] - Licensing and bug reporting online location changed
+[Added] - Flick support on carousel
+[Added] - Double click in history dialog to open items
+[Added] - Annotation can now zoom in/out with slider and Ctrl Mouse wheel/Pinch
+[Added] - Prompt to save changes when exiting annotation and ink with no save
+[Added] - Splash Screen
+[Improved] - Default window size on first start
+[Fixed] - Incorrect font size when exporting to Xps and Jpg
+[Fixed] - Relevance Highlighting in network view incorrect on initial display
+[Fixed] - List view population freezing on long lists
+
+2009-08-13
+==========
+
+[Added] - Silently activates software
+[Fixed] - Search/Visualisation selectors cropped on small screen resolutions
+[Added] - Save File dialog remembers last save location
+[Added] - Configuration History items to keep and space used
+[Added] - Configuration Thumbnails space to use, used and location
+
+2009-08-11
+==========
+
+[Fixed] - Busy Panel Background incorrect when dialog close and open too quickly
+[Fixed] - Tab can move focus outside of dialog boxes
+[Changed] - Replaced Clustering engine with Carrot2
+[Added] - Wacom tablet detection [only active in Bamboo Explore branded version]
+[Added] - Exception Handler reports exceptions centrally
+[Added] - Tree Map Visualisation
+[Added] - Credit to Carrot2 in about box
+[Added] - Separate annotate url for search results
