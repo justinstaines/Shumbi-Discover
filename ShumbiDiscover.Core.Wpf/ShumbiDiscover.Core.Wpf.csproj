@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3EE23E0E-D56D-40C4-B395-C7A6E66B1582}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShumbiDiscover.Core</RootNamespace>
+    <AssemblyName>ShumbiDiscover.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\Version\Shumbi Ltd.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <WarningsAsErrors>1591,1572,1573,1574,1587</WarningsAsErrors>
+    <DocumentationFile>bin\Debug\ShumbiDiscover.Core.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="SmartAssembly.Attributes, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7f465a1c156d4d57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\3rd Party\{smartassembly}\Attributes\SmartAssembly.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Common\ShumbiDiscover.Configuration\CoreConfiguration.cs">
+      <Link>CoreConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ClustererSnippet.cs" />
+    <Compile Include="SearchClusterTask.cs" />
+    <Compile Include="CoreLogic.cs" />
+    <Compile Include="CoreInterface.xaml.cs">
+      <DependentUpon>CoreInterface.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AbstractCoreLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\CreditsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditsResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WebThumbnailGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchResultAnnotate48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ClusterClose48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Configuration48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Favourites48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\History48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kinds\Document32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kinds\Video32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kinds\Picture32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kinds\Social32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Kinds\Web32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logout48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ClusterExplore48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchResultOpen48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Search48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Bing48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Flickr48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\FriendFeed48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Google48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Scribd48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Twitter48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Wikipedia48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Yahoo48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\YouTube48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Visualisations\NetworkVisualisation48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Visualisations\TagCloudVisualisation48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Visualisations\TreeMapVisualisation48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Visualisations48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CoreInterface.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Api.Model\Obany.Api.Model.csproj">
+      <Project>{8C20F5D1-049F-4A54-AD44-357E45667E5F}</Project>
+      <Name>Obany.Api.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Flickr\Obany.Flickr.csproj">
+      <Project>{FE2F600B-B337-4B60-8AC2-98E9C5712933}</Project>
+      <Name>Obany.Flickr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.FriendFeed\Obany.FriendFeed.csproj">
+      <Project>{405FE4C5-E6F5-4CA7-827D-52D5A65B8635}</Project>
+      <Name>Obany.FriendFeed</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Google\Obany.Google.csproj">
+      <Project>{D875DAC2-BBDC-4125-ADBC-DE168080CED3}</Project>
+      <Name>Obany.Google</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Microsoft.Bing\Obany.Microsoft.Bing.csproj">
+      <Project>{B34BC719-175D-48EB-8813-8DC7CDD8E241}</Project>
+      <Name>Obany.Microsoft.Bing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Photobucket\Obany.Photobucket.csproj">
+      <Project>{CE26D503-DE1E-4243-9EDF-C4346E98CA20}</Project>
+      <Name>Obany.Photobucket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Scribd\Obany.Scribd.csproj">
+      <Project>{C658C5FB-D20F-4B6F-A8D5-3945F583563C}</Project>
+      <Name>Obany.Scribd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Twitter\Obany.Twitter.csproj">
+      <Project>{8046F7AA-C1E5-4E1E-80E9-AC052BD2DC91}</Project>
+      <Name>Obany.Twitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.Yahoo\Obany.Yahoo.csproj">
+      <Project>{F9A58E14-24B3-4A87-A9A7-42E783653B85}</Project>
+      <Name>Obany.Yahoo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Api\Obany.YouTube\Obany.YouTube.csproj">
+      <Project>{F1CA197D-C588-4946-A3C4-210E646C700C}</Project>
+      <Name>Obany.YouTube</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Cluster\Obany.Cluster.Model\Obany.Cluster.Model.csproj">
+      <Project>{5B083DA6-9615-441E-B5C3-C25CE71BD039}</Project>
+      <Name>Obany.Cluster.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Cluster\Obany.Cluster.Omoikane2G\Obany.Cluster.Omoikane2G.csproj">
+      <Project>{FFDA80CC-A701-4161-BDCA-C846AFFD59A9}</Project>
+      <Name>Obany.Cluster.Omoikane2G</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Communications\Obany.Communications.csproj">
+      <Project>{3F636488-62C7-4CB9-8242-EB3984581B17}</Project>
+      <Name>Obany.Communications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Core\Obany.Core.csproj">
+      <Project>{B59643D9-06E7-41EC-B415-C3A91C4E7838}</Project>
+      <Name>Obany.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Cryptography\Obany.Cryptography.csproj">
+      <Project>{F043921B-5137-49A4-B757-D104B144090E}</Project>
+      <Name>Obany.Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Language.JavaScript\Obany.Language.JavaScript.csproj">
+      <Project>{5478CD02-9353-4CC8-993C-E64A85EDEF3D}</Project>
+      <Name>Obany.Language.JavaScript</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Core\Obany.Language.Xml\Obany.Language.Xml.csproj">
+      <Project>{8EAB9F62-A25A-42A2-8428-3D192E130B60}</Project>
+      <Name>Obany.Language.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Providers\Obany.DocumentStorage.Model\Obany.DocumentStorage.Model.csproj">
+      <Project>{B14C0EE9-F138-4B53-8DC8-848ADC40598D}</Project>
+      <Name>Obany.DocumentStorage.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Providers\Obany.DocumentStorage.Scribd\Obany.DocumentStorage.Scribd.csproj">
+      <Project>{27F65E4F-85DC-480F-9292-6678F1C8B94A}</Project>
+      <Name>Obany.DocumentStorage.Scribd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Providers\Obany.Preferences.Model\Obany.Preferences.Model.csproj">
+      <Project>{B981FAD4-1E2C-437D-BCB5-700855819AFB}</Project>
+      <Name>Obany.Preferences.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Providers\Obany.Provider.Model\Obany.Provider.Model.csproj">
+      <Project>{C8098141-B56F-46C9-B4A1-89E4CC5352B1}</Project>
+      <Name>Obany.Provider.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Render\Obany.Render.Canvas\Obany.Render.Canvas.csproj">
+      <Project>{DFDDB58C-0096-4680-8B67-85A308698713}</Project>
+      <Name>Obany.Render.Canvas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Render\Obany.Render.Objects\Obany.Render.Objects.csproj">
+      <Project>{601376B8-91A1-434B-A95C-1661F4DB72C4}</Project>
+      <Name>Obany.Render.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Render\Obany.Render.Web\Obany.Render.Web.csproj">
+      <Project>{66084185-B461-4012-A581-AA4DC93F7C27}</Project>
+      <Name>Obany.Render.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Search\Obany.Search.Engines\Obany.Search.Engines.csproj">
+      <Project>{AF58D352-0566-4FCD-9056-5C447AE1E112}</Project>
+      <Name>Obany.Search.Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\Search\Obany.Search.Model\Obany.Search.Model.csproj">
+      <Project>{437ACACF-1ED9-4FA4-952D-E3601C27CD78}</Project>
+      <Name>Obany.Search.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\UI\Obany.UI.Wpf\Obany.UI.Wpf.csproj">
+      <Project>{8D1C16F0-6B18-4A0E-B008-B8A1E8351D2D}</Project>
+      <Name>Obany.UI.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Lib\UI\System.Windows\System.Windows.csproj">
+      <Project>{0958769D-3884-40D4-9A7F-42EB12D254CD}</Project>
+      <Name>System.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ShumbiDiscover.Data\ShumbiDiscover.Data.csproj">
+      <Project>{6672DF09-A0D9-4972-9AE6-82102F444B88}</Project>
+      <Name>ShumbiDiscover.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ShumbiDiscover.Model\ShumbiDiscover.Model.csproj">
+      <Project>{9A374302-5A1F-4A3C-82A7-948DE5996688}</Project>
+      <Name>ShumbiDiscover.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShumbiDiscover.Controls.Wpf\ShumbiDiscover.Controls.Wpf.csproj">
+      <Project>{3FF7AECA-6387-429E-B580-F3650FA05F3C}</Project>
+      <Name>ShumbiDiscover.Controls.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShumbiDiscover.Notes.Wpf\ShumbiDiscover.Notes.Wpf.csproj">
+      <Project>{4A7E0510-9393-476F-A520-AC1B4C0C18F2}</Project>
+      <Name>ShumbiDiscover.Notes.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShumbiDiscover.Visualisations.Wpf\ShumbiDiscover.Visualisations.Wpf.csproj">
+      <Project>{FEE695B4-88A4-42B4-AEBE-0BBDC9F4E46C}</Project>
+      <Name>ShumbiDiscover.Visualisations.Wpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\CreditsResource.en-GB.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.ru-RU.resx" />
+    <EmbeddedResource Include="Properties\CreditsResource.zh-TW.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.zh-CN.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.pt-BR.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.pl-PL.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.nl-NL.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.ja-JP.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.it-IT.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.fr-FR.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.es-ES.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.de-DE.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\CreditsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreditsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
+    <EmbeddedResource Include="Properties\Resources.en-GB.resx" />
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr-FR.resx" />
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Properties\Resources.nl-NL.resx" />
+    <EmbeddedResource Include="Properties\Resources.pl-PL.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt-BR.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru-RU.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchProviders\Photobucket48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Version\Shumbi Ltd.pfx">
+      <Link>Shumbi Ltd.pfx</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

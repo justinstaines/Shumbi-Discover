@@ -1,0 +1,287 @@
+﻿<UserControl x:Class="ShumbiDiscover.Core.CoreInterface"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+             xmlns:ShumbiDiscover_Controls="clr-namespace:ShumbiDiscover.Controls;assembly=ShumbiDiscover.Controls"
+            xmlns:Obany_UI_Controls="clr-namespace:Obany.UI.Controls;assembly=Obany.UI"
+             xmlns:ShumbiDiscover_Notes="clr-namespace:ShumbiDiscover.Notes;assembly=ShumbiDiscover.Notes"
+			 mc:Ignorable="d"
+			 d:DesignWidth="1024"
+			 d:DesignHeight="768">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="Theme_ApplicationControl" TargetType="Button">
+            <Grid x:Name="mainGrid" RenderTransformOrigin="0.5,0.5">
+                <vsm:VisualStateManager.VisualStateGroups>
+                    <vsm:VisualStateGroup x:Name="CommonStates">
+                        <vsm:VisualState x:Name="MouseOver">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="1.1" Duration="0:0:0.150" />
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="1.1" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="Normal">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.150" />
+                                <DoubleAnimation Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                        <vsm:VisualState x:Name="Disabled">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="_content" Storyboard.TargetProperty="(UIElement.Opacity)" To="0.2" Duration="0:0:0.150" />
+                            </Storyboard>
+                        </vsm:VisualState>
+                    </vsm:VisualStateGroup>
+                </vsm:VisualStateManager.VisualStateGroups>
+
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        <SkewTransform AngleX="0" AngleY="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform X="0" Y="0"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+
+                <ContentPresenter x:Name="_content" Opacity="1"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <Grid>
+        <ContentControl x:Name="contentPresenterSearchVisualise" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Place the content first so it appears underneath all the other content-->
+                <Border x:Name="borderContent" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="260"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ContentPresenter x:Name="contentPresenterVisualisation" Grid.Column="0" />
+                        <ShumbiDiscover_Controls:DocumentViewer x:Name="documentViewer" Grid.Column="0" Margin="20,20,20,20"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Obany_UI_Controls:ThemeBorder x:Name="borderActions" BorderThickness="1,1,1,1" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="120"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderActionsTitle" Grid.Row="0" BorderThickness="0,0,0,1">
+                                        <TextBlock x:Name="labelActionInformation" Text="Actions" FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                    </Obany_UI_Controls:ThemeCaptionBorder>
+
+                                    <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="panelVisualisationButtons" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="buttonExploreCluster" Click="buttonExploreCluster_Click" Template="{StaticResource Theme_ApplicationControl}" MaxWidth="80" Margin="5,0,5,0">
+                                            <StackPanel Orientation="Vertical">
+                                                <Image Height="48" Width="48" Source="Resources/ClusterExplore48.png" Margin="0,0,10,0"/>
+                                                <TextBlock x:Name="labelExploreClusterButton" Text="Explore Cluster" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="panelDocumentViewerButtons" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Button x:Name="buttonCloseCluster" Click="buttonCloseCluster_Click" Template="{StaticResource Theme_ApplicationControl}" MaxWidth="80" Margin="5,0,5,0">
+                                            <StackPanel Orientation="Vertical">
+                                                <Image Height="48" Width="48" Source="Resources/ClusterClose48.png"/>
+                                                <TextBlock x:Name="labelCloseClusterButton" Text="Close Cluster" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button x:Name="buttonOpenSearchResult" Click="buttonOpenSearchResult_Click" Template="{StaticResource Theme_ApplicationControl}" MaxWidth="80" Margin="5,0,5,0">
+                                            <StackPanel Orientation="Vertical">
+                                                <Image Height="48" Width="48" Source="Resources/SearchResultOpen48.png"/>
+                                                <TextBlock x:Name="labelOpenSearchResultButton" Text="Open Search Result" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button x:Name="buttonAnnotateSearchResult" Click="buttonAnnotateSearchResult_Click" Template="{StaticResource Theme_ApplicationControl}" MaxWidth="80" Margin="5,0,5,0">
+                                            <StackPanel Orientation="Vertical">
+                                                <Image Height="48" Width="48" Source="Resources/SearchResultAnnotate48.png"/>
+                                                <TextBlock x:Name="labelAnnotateSearchResultButton" Text="Annotate Search Result" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Obany_UI_Controls:ThemeBorder>
+
+                            <Obany_UI_Controls:ThemeBorder x:Name="borderInformation" BorderThickness="1,1,1,1" Grid.Row="3">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Obany_UI_Controls:ThemeCaptionBorder x:Name="borderInformationTitle" Grid.Row="0" BorderThickness="0,0,0,1">
+                                        <TextBlock x:Name="labelClusterInformation" Text="Cluster Information" FontSize="14" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                    </Obany_UI_Controls:ThemeCaptionBorder>
+                                    <ScrollViewer x:Name="panelScrollViewer" Grid.Row="1" Margin="10,10,10,10" VerticalScrollBarVisibility="Auto">
+                                        <StackPanel x:Name="panelInformation"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Obany_UI_Controls:ThemeBorder>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Obany_UI_Controls:ThemeBorder x:Name="panelApplicationControl" Grid.Row="0" BorderThickness="0,0,0,1" Padding="10,10,10,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <!-- 0 History -->
+                            <ColumnDefinition Width="80"/>
+                            <!-- 1 Favourites -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- 2 Spacer -->
+                            <ColumnDefinition Width="100"/>
+                            <!-- 3 Search -->
+                            <ColumnDefinition Width="200"/>
+                            <!-- 4 Text Box -->
+                            <ColumnDefinition Width="80"/>
+                            <!-- 5 Search -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- 6 Spacer -->
+                            <ColumnDefinition Width="80"/>
+                            <!-- 7 Search Providers -->
+                            <ColumnDefinition Width="80"/>
+                            <!-- 8 Visualisations -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- 9 Spacer -->
+                            <ColumnDefinition Width="80" x:Name="columnDefinitionLogout1"/>
+                            <!-- 10 Logout -->
+                            <ColumnDefinition Width="*" x:Name="columnDefinitionLogout2"/>
+                            <!-- 11 Spacer -->
+                            <ColumnDefinition Width="80"/>
+                            <!-- 12 Configuration -->
+                            <ColumnDefinition Width="140"/>
+                            <!-- 13 About -->
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="buttonHistory" Grid.Column="0" Click="buttonHistory_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/History48.png"/>
+                                <TextBlock x:Name="labelHistoryButton" HorizontalAlignment="Center" Text="History" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="buttonFavourites" Grid.Column="1" Click="buttonFavourites_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/Favourites48.png"/>
+                                <TextBlock x:Name="labelFavouritesButton" HorizontalAlignment="Center" Text="Favourites" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Spacer at 2 -->
+
+                        <TextBlock x:Name="labelSearch" FontSize="14" Text="Search" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Right" Margin="0,0,5,0"/>
+                        <TextBox Height="36" Grid.Column="4" Text="" TextWrapping="NoWrap" FontSize="16" x:Name="textQuery" KeyUp="textQuery_KeyUp"/>
+
+                        <Button x:Name="buttonSearch" Grid.Column="5" Click="buttonSearch_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <Image Height="48" Width="48" Source="Resources/Search48.png"/>
+                        </Button>
+
+                        <!-- Spacer at 6 -->
+
+                        <Button x:Name="buttonSearchProviders" Grid.Column="7" Click="buttonSearchProviders_Click" MouseMove="buttonSearchProviders_MouseMove" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/SearchProviders48.png"/>
+                                <TextBlock x:Name="labelSearchProvidersButton" HorizontalAlignment="Center" Text="Search Providers" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="buttonVisualisations" Grid.Column="8" Click="buttonVisualisations_Click" MouseMove="buttonVisualisations_MouseMove" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/Visualisations48.png"/>
+                                <TextBlock x:Name="labelVisualisationsButton" HorizontalAlignment="Center" Text="Visualisations" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Spacer at 9 -->
+
+                        <Button x:Name="buttonLogout" Grid.Column="10" Click="buttonLogout_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/Logout48.png"/>
+                                <TextBlock x:Name="labelLogoutButton" HorizontalAlignment="Center" Text="Logout" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Spacer at 11 -->
+
+                        <Button x:Name="buttonConfiguration" Grid.Column="12" Click="buttonConfiguration_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Height="48" Width="48" Source="Resources/Configuration48.png"/>
+                                <TextBlock x:Name="labelConfigurationButton" HorizontalAlignment="Center" Text="Configuration" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="buttonAbout" Grid.Column="13" Click="buttonAbout_Click" Template="{StaticResource Theme_ApplicationControl}">
+                            <StackPanel Orientation="Vertical">
+                                <ContentPresenter x:Name="buttonAboutImage"/>
+                                <TextBlock x:Name="labelAboutButton" HorizontalAlignment="Center" Text="About" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Obany_UI_Controls:ThemeBorder>
+
+                <Obany_UI_Controls:ThemeBorder x:Name="borderSearchVisualisationTab" Grid.Row="1" BorderThickness="0,0,0,1">
+                    <ShumbiDiscover_Controls:SearchVisualisationTab x:Name="searchVisualisationTab" VerticalAlignment="Bottom" />
+                </Obany_UI_Controls:ThemeBorder>
+
+            </Grid>
+        </ContentControl>
+        
+        <ShumbiDiscover_Notes:AnnotationCanvas x:Name="annotationCanvas" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <!-- 0 History -->
+                <ColumnDefinition Width="80"/>
+                <!-- 1 Favourites -->
+                <ColumnDefinition Width="*"/>
+                <!-- 2 Spacer -->
+                <ColumnDefinition Width="100"/>
+                <!-- 3 Search -->
+                <ColumnDefinition Width="200"/>
+                <!-- 4 Text Box -->
+                <ColumnDefinition Width="80"/>
+                <!-- 5 Search -->
+                <ColumnDefinition Width="*"/>
+                <!-- 6 Spacer -->
+                <ColumnDefinition Width="80"/>
+                <!-- 7 Search Providers -->
+                <ColumnDefinition Width="80"/>
+                <!-- 8 Visualisations -->
+                <ColumnDefinition Width="*"/>
+                <!-- 9 Spacer -->
+                <ColumnDefinition Width="80" x:Name="columnDefinitionLogout3"/>
+                <!-- 10 Logout -->
+                <ColumnDefinition Width="*" x:Name="columnDefinitionLogout4"/>
+                <!-- 11 Spacer -->
+                <ColumnDefinition Width="80"/>
+                <!-- 12 Configuration -->
+                <ColumnDefinition Width="140"/>
+                <!-- 13 About -->
+            </Grid.ColumnDefinitions>
+            <ShumbiDiscover_Controls:SearchSelector Grid.Column="7" Grid.ColumnSpan="7" x:Name="searchSelector" Margin="40,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ShumbiDiscover_Controls:VisualisationSelector Grid.Column="8" Grid.ColumnSpan="6" x:Name="visualisationSelector" Margin="40,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        </Grid>
+
+        <Grid x:Name="gridInitialising" Background="#FF000000" Grid.RowSpan="3">
+            <TextBlock x:Name="labelInitialising" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Initialising...</TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
